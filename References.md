@@ -17,6 +17,13 @@ References
   * PyPI entry: https://pypi.org/project/coverage/
   * Github repo: https://github.com/nedbat/coveragepy
 
+## Going Further
+
+* Static Analysis
+* Integration Tests
+* Selenium
+* Gherkin
+
 ## Testing in other contexts
 
 * [Automated Testing for Terraform, Docker, Packer, Kubernetes, and More](https://www.infoq.com/presentations/automated-testing-terraform-docker-packer/), by Yevgeniy Brikman from Gruntwork, at QCon SF on Dec 04, 2019.
