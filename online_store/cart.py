@@ -10,7 +10,7 @@ class Item(namedtuple("_Item", ["name", "price", "unit"])):
 
 class OrderLine(namedtuple("_OrderLine", ["item", "qty"])):
     def value(self):
-        return self.item.price * self.qty
+        return round(self.item.price * self.qty, 2)
 
 
 class Cart:
