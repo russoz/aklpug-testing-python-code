@@ -10,7 +10,7 @@ class OrderLineTests(TestCase):
     cabbage = Item("cabbage", 3.00, "piece")
     chicken = Item("chicken", 22.99, "kg")
 
-    @skip("not ready yet")
+    #@skip("not ready yet")
     def test_apples_295(self):
         line = OrderLine(self.apples, 2.95)
         self.assertEqual(line.value(), 11.77)

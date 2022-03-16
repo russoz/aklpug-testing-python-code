@@ -18,9 +18,10 @@ class TooLargeQuantityException(Exception):
 
 
 class Shop:
-    shelf = {}
-    carts = {}
-    payment_service = PaymentService
+    def __init__(self) -> None:
+        self.shelf = {}
+        self.carts = {}
+        self.payment_service = PaymentService
 
     def add_to_shelf(self, item, qty: float):
         if item.name in self.shelf:
@@ -31,7 +32,7 @@ class Shop:
     def remove_from_shelf(self, item, qty: float):
         if item.name not in self.shelf:
             raise OutOfStockException(item)
-        _, shelf_qty = self.shelf[item]
+        _, shelf_qty = self.shelf[item.name]
         if shelf_qty < qty:
             raise TooLargeQuantityException(item, qty, shelf_qty)
         self.shelf[item.name] = (item, shelf_qty - qty)
@@ -49,6 +50,7 @@ class Shop:
     def checkout(self, user: str):
         total = self.get_cart(user).total
         self.payment_service.charge(user, total)
+        self.clear_cart(user)
 
     def clear_cart(self, user: str):
         cart = self.get_cart(user)
